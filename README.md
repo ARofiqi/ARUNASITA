@@ -41,3 +41,10 @@ Proyek ini saat ini berada pada tahap awal pengembangan dengan progres sekitar 5
 
 **Kontak:**
 Untuk informasi lebih lanjut, hubungi Ahmad Rofiqi di ahmadrofiqi333@gmail.com.
+
+Proyek ARUNASITA adalah situs web yang menggunakan Vite, Vue, dan Tailwind CSS. Proyek ini adalah bagian dari partisipasi dalam lomba gemastik.
+
+**Lisensi**
+
+Proyek ini dilisensikan di bawah [MIT License](./LICENSE.txt).
+
