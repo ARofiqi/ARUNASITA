@@ -110,14 +110,41 @@
     <Footer />
   </div>
 </template>
-
-<script setup>
+<script>
 import Navbar from "@components/Navbar.vue";
 import Footer from "@components/Footer.vue";
 import CardInfoTerkini from "@components/CardInfoTerkini.vue";
 import CardProduk from "@components/CardProduk.vue";
-
 import Cuaca from "@components/weather/Cuaca.vue";
+import axios from "axios";
+
+export default {
+  components: {
+    Navbar,
+    Footer,
+    CardInfoTerkini,
+    CardProduk,
+    Cuaca,
+  },
+  data() {
+    return {
+      berita: [],
+    };
+  },
+  created() {
+    this.fetchBerita();
+  },
+  methods: {
+    async fetchBerita() {
+      try {
+        const response = await axios.get("https://api.example.com/berita");
+        this.berita = response.data;
+      } catch (error) {
+        console.error("Error fetching berita:", error);
+      }
+    },
+  },
+};
 </script>
 
 <style></style>
