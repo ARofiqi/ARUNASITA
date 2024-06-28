@@ -1,10 +1,10 @@
 <template>
   <div class="flex items-start py-10 border-b-2 border-black">
-    <div><img src="" alt="" class="w-[200px] h-[200px] bg-red-300" /></div>
+    <div class="w-[200px] h-[200px] bg-cover bg-center relative" :style="{ 'background-image': 'url(' + url + ')' }"></div>
     <div class="grid grid-cols-4 w-full items-start">
       <div class="px-5">
         <h2 class="font-bold text-xl">{{ title }}</h2>
-        <p class="mt-5">Rp.{{ price }}'</p>
+        <p class="mt-5">{{ formatPrice(price) }}</p>
       </div>
       <div class="flex bg-gray-200 items-center w-fit p-2 justify-center">
         <svg @click="incrementValue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 cursor-pointer">
@@ -18,7 +18,7 @@
         </svg>
       </div>
       <div class="">
-        <p>Rp.{{ totalPrice }}-</p>
+        <p>{{ formatPrice(totalPrice) }}-</p>
       </div>
       <div class="flex justify-end">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-8 h-8">
@@ -31,13 +31,25 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   props: {
-    title: String,
-    price: Number,
-    totalPrice: Number,
+    title: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    totalPrice: {
+      type: Number,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
@@ -52,6 +64,9 @@ export default {
       if (this.inputValue > 0) {
         this.inputValue--;
       }
+    },
+    formatPrice(value) {
+      return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR" }).format(value);
     },
   },
 };

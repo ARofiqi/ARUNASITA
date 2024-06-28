@@ -2,7 +2,7 @@
   <div class="">
     <Navbar />
     <div class="py-16">
-      <h2 class="px-14 pb-10 font-bold text-xl">Berita Terbaru</h2>
+      <h2 class="px-14 pb-10 font-bold text-4xl">Berita Terbaru</h2>
       <div class="bg-gray-200 flex gap-5">
         <div class="h-[400px] w-[550px] bg-cover bg-center relative" :style="{ 'background-image': 'url(\'./informasi/foto1.png\')' }"></div>
         <div class="flex flex-col gap-3 justify-center">

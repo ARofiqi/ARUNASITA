@@ -11,7 +11,10 @@
             />
           </svg>
         </div>
-        <button class="px-4 py-2 bg-primary text-white rounded-lg">Unggah Gambar</button>
+        <label class="px-4 py-2 bg-primary text-white rounded-lg cursor-pointer">
+          Upload Gambar
+          <input type="file" class="hidden" />
+        </label>
       </div>
       <div>
         <p class="text-lg font-semibold">atau drop file disini</p>

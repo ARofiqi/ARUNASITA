@@ -2,9 +2,7 @@
   <div class="">
     <Navbar />
     <div class="flex gap-5">
-      <div class="w-1/2">
-        <img src="@assets/hero.jpg" alt="hero" />
-      </div>
+      <div class="w-1/2 h-[500px] bg-cover bg-center relative" :style="{ 'background-image': 'url(./hero.jpg)' }"></div>
       <div class="w-1/2 flex flex-col items-start justify-center gap-5">
         <h1 class="text-3xl font-semibold">Tumbuh Bersama Arunasita: Pertanian Cerdas untuk Masa Depan</h1>
         <router-link :to="{ name: 'PlantCam' }">
@@ -77,7 +75,7 @@
       </div>
     </div>
     <div class="bg-primary text-white px-10 py-10">
-      <h2 class="text-2xl font-semibold pb-10">Info Terkini</h2>
+      <h2 class="text-3xl font-semibold pb-10">Info Terkini</h2>
       <div class="grid grid-cols-2 gap-5">
         <CardInfoTerkini
           :url="'./infoTerkini/img1.jpg'"
@@ -93,18 +91,18 @@
         />
       </div>
       <div class="py-5 text-end">
-        <p class="underline">Baca Lebih Banyak</p>
+        <p class="underline cursor-pointer inline-block">Baca Lebih Banyak</p>
       </div>
     </div>
     <div class="px-10 py-20">
-      <h2 class="text-2xl font-semibold pb-10">Produk Pertanian</h2>
+      <h2 class="text-3xl font-semibold pb-10">Produk Pertanian</h2>
       <div class="grid grid-cols-3 gap-5">
         <CardProduk :url="'./produk/caisim.png'" :title="'Caisim'" :price="20000" />
         <CardProduk :url="'./produk/cabai-rawit.png'" :title="'Cabai Rawit'" :price="25000" />
         <CardProduk :url="'./produk/jagung-manis.png'" :title="'Jagung Manis'" :price="15000" />
       </div>
-      <div class="py-5 text-end">
-        <p class="underline">Baca Lebih Banyak</p>
+      <div class="py-5 text-center">
+        <p class="bg-primary inline-block px-4 py-2 text-white rounded font-semibold hover:opacity-80 cursor-pointer">Lihat Lebih Banyak</p>
       </div>
     </div>
     <Footer />
@@ -137,8 +135,9 @@ export default {
   methods: {
     async fetchBerita() {
       try {
-        const response = await axios.get("https://api.example.com/berita");
+        const response = await axios.get("https://my-json-server.typicode.com/typicode/demo/posts");
         this.berita = response.data;
+        console.log(this.berita);
       } catch (error) {
         console.error("Error fetching berita:", error);
       }
