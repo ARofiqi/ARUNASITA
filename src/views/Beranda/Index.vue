@@ -77,18 +77,7 @@
     <div class="bg-primary text-white px-10 py-10">
       <h2 class="text-3xl font-semibold pb-10">Info Terkini</h2>
       <div class="grid grid-cols-2 gap-5">
-        <CardInfoTerkini
-          :url="'./infoTerkini/img1.jpg'"
-          :title="'Dampak Teknologi Terhadap Pertanian'"
-          :desc="'Lorem ipsum dolor sit amet consectetur. Ac scelerisque enim interdum egestas risus sed vel non. Egestas nibh dignissim pellentesque metus quis. Eget.Lorem ipsum dolor sit amet consectetur. Ac scelerisque enim interdum egestas risus sed vel non. Egestas nibh dignissim pellentesque metus quis. Eget.'"
-          :date="'Senin, 1 Januari 2029'"
-        />
-        <CardInfoTerkini
-          :url="'./infoTerkini/img2.jpg'"
-          :title="'Dampak Teknologi Terhadap Pertanian'"
-          :desc="'Lorem ipsum dolor sit amet consectetur. Ac scelerisque enim interdum egestas risus sed vel non. Egestas nibh dignissim pellentesque metus quis. Eget.Lorem ipsum dolor sit amet consectetur. Ac scelerisque enim interdum egestas risus sed vel non. Egestas nibh dignissim pellentesque metus quis. Eget.'"
-          :date="'Senin, 1 Januari 2029'"
-        />
+        <CardInfoTerkini v-for="item in infoTerkini" :key="item.id" :url="item.url" :title="item.title" :desc="item.desc" :date="item.date" />
       </div>
       <div class="py-5 text-end">
         <p class="underline cursor-pointer inline-block">Baca Lebih Banyak</p>
@@ -97,9 +86,7 @@
     <div class="px-10 py-20">
       <h2 class="text-3xl font-semibold pb-10">Produk Pertanian</h2>
       <div class="grid grid-cols-3 gap-5">
-        <CardProduk :url="'./produk/caisim.png'" :title="'Caisim'" :price="20000" />
-        <CardProduk :url="'./produk/cabai-rawit.png'" :title="'Cabai Rawit'" :price="25000" />
-        <CardProduk :url="'./produk/jagung-manis.png'" :title="'Jagung Manis'" :price="15000" />
+        <CardProduk v-for="produk in produks" :key="produk.id" :url="produk.url" :title="produk.title" :price="produk.price" />
       </div>
       <div class="py-5 text-center">
         <p class="bg-primary inline-block px-4 py-2 text-white rounded font-semibold hover:opacity-80 cursor-pointer">Lihat Lebih Banyak</p>
@@ -114,9 +101,49 @@ import Footer from "@components/Footer.vue";
 import CardInfoTerkini from "@components/CardInfoTerkini.vue";
 import CardProduk from "@components/CardProduk.vue";
 import Cuaca from "@components/weather/Cuaca.vue";
-import axios from "axios";
+// import axios from "axios";
 
 export default {
+  data() {
+    return {
+      infoTerkini: [
+        {
+          id: "1",
+          url: "./infoTerkini/img1.jpg",
+          title: "Dampak Teknologi Terhadap Pertanian",
+          desc: "Lorem ipsum dolor sit amet consectetur. Ac scelerisque enim interdum egestas risus sed vel non. Egestas nibh dignissim pellentesque metus quis. Eget.Lorem ipsum dolor sit amet consectetur. Ac scelerisque enim interdum egestas risus sed vel non. Egestas nibh dignissim pellentesque metus quis. Eget.",
+          date: "Senin, 1 Januari 2029",
+        },
+        {
+          id: "2",
+          url: "./infoTerkini/img2.jpg",
+          title: "Dampak Teknologi Terhadap Pertanian",
+          desc: "Lorem ipsum dolor sit amet consectetur. Ac scelerisque enim interdum egestas risus sed vel non. Egestas nibh dignissim pellentesque metus quis. Eget.Lorem ipsum dolor sit amet consectetur. Ac scelerisque enim interdum egestas risus sed vel non. Egestas nibh dignissim pellentesque metus quis. Eget.",
+          date: "Senin, 1 Januari 2029",
+        },
+      ],
+      produks: [
+        {
+          id: "1",
+          url: "./produk/caisim.png",
+          title: "Caisim",
+          price: 20000,
+        },
+        {
+          id: "1",
+          url: "./produk/cabai-rawit.png",
+          title: "Cabai Rawit",
+          price: 25000,
+        },
+        {
+          id: "1",
+          url: "./produk/jagung-manis.png",
+          title: "Jagung Manis",
+          price: 15000,
+        },
+      ],
+    };
+  },
   components: {
     Navbar,
     Footer,
@@ -124,23 +151,18 @@ export default {
     CardProduk,
     Cuaca,
   },
-  data() {
-    return {
-      berita: [],
-    };
-  },
   created() {
     this.fetchBerita();
   },
   methods: {
     async fetchBerita() {
-      try {
-        const response = await axios.get("https://my-json-server.typicode.com/typicode/demo/posts");
-        this.berita = response.data;
-        console.log(this.berita);
-      } catch (error) {
-        console.error("Error fetching berita:", error);
-      }
+      // try {
+      //   const response = await axios.get("https://my-json-server.typicode.com/typicode/demo/posts");
+      //   this.berita = response.data;
+      //   console.log(this.berita);
+      // } catch (error) {
+      //   console.error("Error fetching berita:", error);
+      // }
     },
   },
 };

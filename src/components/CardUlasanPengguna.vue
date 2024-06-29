@@ -3,7 +3,7 @@
     <img :src="imageSrc" alt="" class="w-[100px] h-[100px] bg-red-300 rounded-full" />
     <div class="flex flex-col gap-2">
       <p class="text-sm">
-        {{ ulasan }}
+        {{ desc }}
       </p>
       <h2 class="font-semibold text-lg">{{ nama }}</h2>
     </div>
@@ -15,7 +15,7 @@ export default {
   props: {
     imageSrc: String,
     imageAlt: String,
-    ulasan: String,
+    desc: String,
     nama: String
   }
 }

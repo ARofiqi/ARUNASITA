@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="pt-24 pb-10">
-      <p class="text-sm">© 2024 Arunasita Inc. All Rights Reserved</p>
+      <p>&copy; 2024 ARUNASITA. Licensed under the <a href="/LICENSE.txt">MIT License</a>.</p>
     </div>
   </footer>
 </template>

@@ -23,30 +23,94 @@
     <div class="bg-primary px-16">
       <h2 class="text-center font-semibold text-2xl py-10 text-white">Explore</h2>
       <div class="flex gap-3 flex-wrap justify-center">
-        <CardExplore :title="'Cabai Rawit'" :subtitle="'Capsicum frutescens'" :url="'./produk/cabai-rawit.png'" />
-        <CardExplore :title="'Bawang Merah'" :subtitle="'Capsicum frutescens'" :url="'./produk/bawang-merah.png'" />
-        <CardExplore :title="'Bayam'" :subtitle="'Capsicum frutescens'" :url="'./produk/bayam.png'" />
-        <CardExplore :title="'Bit Merah'" :subtitle="'Capsicum frutescens'" :url="'./produk/bit-merah.png'" />
-        <CardExplore :title="'Caisim'" :subtitle="'Capsicum frutescens'" :url="'./produk/caisim.png'" />
-        <CardExplore :title="'Jagung Manis'" :subtitle="'Capsicum frutescens'" :url="'./produk/jagung-manis.png'" />
-        <CardExplore :title="'Mentimun'" :subtitle="'Capsicum frutescens'" :url="'./produk/mentimun.png'" />
-        <CardExplore :title="'Terong'" :subtitle="'Capsicum frutescens'" :url="'./produk/terong.png'" />
-        <CardExplore :title="'Paprika'" :subtitle="'Capsicum frutescens'" :url="'./produk/paprika.png'" />
-        <CardExplore :title="'Tomat'" :subtitle="'Capsicum frutescens'" :url="'./produk/tomat.png'" />
+        <CardExplore v-for="item in explores" :key="item.id" :title="item.title" :subtitle="item.subtitle" :url="item.url" />
       </div>
       <div class="flex justify-center pt-10">
         <button class="bg-white rounded-full py-2 px-6">See More</button>
       </div>
     </div>
-    
+
     <Footer />
   </div>
 </template>
 
-<script setup>
+<script>
 import Navbar from "@components/Navbar.vue";
 import Footer from "@components/Footer.vue";
 import CardExplore from "@components/CardExplore.vue";
+export default {
+  data() {
+    return {
+      explores: [
+        {
+          id: "1",
+          title: "Cabai Rawit",
+          subtitle: "Capsicum frutescens",
+          url: "./produk/cabai-rawit.png",
+        },
+        {
+          id: "2",
+          title: "Bawang Merah",
+          subtitle: "Capsicum frutescens",
+          url: "./produk/bawang-merah.png",
+        },
+        {
+          id: "3",
+          title: "Bayam",
+          subtitle: "Capsicum frutescens",
+          url: "./produk/bayam.png",
+        },
+        {
+          id: "4",
+          title: "Bit Merah",
+          subtitle: "Capsicum frutescens",
+          url: "./produk/bit-merah.png",
+        },
+        {
+          id: "5",
+          title: "Caisim",
+          subtitle: "Capsicum frutescens",
+          url: "./produk/caisim.png",
+        },
+        {
+          id: "6",
+          title: "Jagung Manis",
+          subtitle: "Capsicum frutescens",
+          url: "./produk/jagung-manis.png",
+        },
+        {
+          id: "7",
+          title: "Mentimun",
+          subtitle: "Capsicum frutescens",
+          url: "./produk/mentimun.png",
+        },
+        {
+          id: "8",
+          title: "Terong",
+          subtitle: "Capsicum frutescens",
+          url: "./produk/terong.png",
+        },
+        {
+          id: "9",
+          title: "Paprika",
+          subtitle: "Capsicum frutescens",
+          url: "./produk/paprika.png",
+        },
+        {
+          id: "10",
+          title: "Tomat",
+          subtitle: "Capsicum frutescens",
+          url: "./produk/tomat.png",
+        },
+      ],
+    };
+  },
+  components: {
+    Navbar,
+    Footer,
+    CardExplore,
+  },
+};
 </script>
 
 <style></style>

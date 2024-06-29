@@ -68,42 +68,7 @@
     <div class="bg-gray-300 px-16 py-10">
       <h2 class="text-2xl text-center py-10 font-semibold">Terimakasih atas ulasan dan sarannya</h2>
       <div class="grid grid-cols-2 gap-5">
-        <CardUlasanPengguna
-          :imageSrc="'./tentang/foto1.png'"
-          :imageAlt="'heh'"
-          :ulasan="'Arunasita adalah platform yang luar biasa! Saya sangat terkesan dengan desain antarmukanya yang intuitif dan mudah digunakan. Berbagai fitur yang ditawarkan sangat membantu dalam manajemen proyek saya. Dukungan pelanggannya juga responsif dan sangat membantu. Saya sangat merekomendasikan Arunasita untuk siapa saja yang mencari solusi manajemen proyek yang efisien.'"
-          :nama="'Andi Prasetyo'"
-        />
-        <CardUlasanPengguna
-          :imageSrc="'./tentang/foto2.png'"
-          :imageAlt="'heh'"
-          :ulasan="'Pengalaman saya menggunakan Arunasita cukup memuaskan. Fitur-fitur yang ditawarkan sangat komprehensif dan membantu dalam mengelola tim dan tugas. Namun, saya berharap ada lebih banyak opsi integrasi dengan alat lain yang sudah kami gunakan. Secara keseluruhan, Arunasita tetap merupakan alat yang hebat untuk meningkatkan produktivitas'"
-          :nama="'Steve'"
-        />
-        <CardUlasanPengguna
-          :imageSrc="'./tentang/foto3.png'"
-          :imageAlt="'heh'"
-          :ulasan="'Saya sangat puas dengan Arunasita! Platform ini benar-benar memudahkan saya dalam mengatur proyek dan tim. Semua fitur bekerja dengan sangat baik, dan desainnya sangat user-friendly. Saya juga sangat menghargai adanya update berkala yang menambahkan fitur baru dan perbaikan bug. Terima kasih, Arunasita'"
-          :nama="'Rudi Hartono'"
-        />
-        <CardUlasanPengguna
-          :imageSrc="'./tentang/foto4.png'"
-          :imageAlt="'heh'"
-          :ulasan="'Arunasita adalah alat yang sangat berguna untuk manajemen proyek. Saya sangat menyukai fitur kolaborasinya yang memudahkan komunikasi antar anggota tim. Namun, ada beberapa fitur yang saya rasa masih bisa ditingkatkan. Meskipun begitu, Arunasita tetap menjadi pilihan utama saya untuk manajemen proyek'"
-          :nama="'Dewa'"
-        />
-        <CardUlasanPengguna
-          :imageSrc="'./tentang/foto5.png'"
-          :imageAlt="'heh'"
-          :ulasan="'Arunasita benar-benar mengubah cara kami bekerja. Dengan fitur-fitur canggihnya, kami dapat mengelola proyek dengan lebih efisien dan efektif. Antarmuka yang bersih dan mudah digunakan membuat semua anggota tim dapat beradaptasi dengan cepat. Saya sangat merekomendasikan Arunasita kepada semua perusahaan yang mencari solusi manajemen proyek yang solid'"
-          :nama="'Pombi'"
-        />
-        <CardUlasanPengguna
-          :imageSrc="'./tentang/foto6.png'"
-          :imageAlt="'heh'"
-          :ulasan="'Arunasita telah menjadi alat yang tak tergantikan dalam manajemen proyek kami. Dari perencanaan hingga pelaksanaan, setiap fitur yang ditawarkan sangat mendukung produktivitas tim. Kemampuan untuk melacak progres dan mengelola tugas secara real-time membuat semuanya berjalan lebih lancar. Tim supportnya juga sangat responsif dan membantu dalam setiap masalah yang kami hadapi. Sangat direkomendasikan untuk siapa saja yang membutuhkan alat manajemen proyek yang handal dan efisien'"
-          :nama="'Jonathan'"
-        />
+        <CardUlasanPengguna v-for="item in ulasan" :key="item.id" :imageSrc="item.imageSrc" :imageAlt="item.imageAlt" :desc="item.desc" :nama="item.nama" />
       </div>
     </div>
     <Footer />
@@ -118,6 +83,54 @@ import IconMitra from "@components/IconMitra.vue";
 import CardFounder from "@components/CardFounder.vue";
 
 export default {
+  data() {
+    return {
+      ulasan: [
+        {
+          id: 1,
+          imageSrc: "./tentang/foto1.png",
+          imageAlt: "heh",
+          desc: "Arunasita adalah platform yang luar biasa! Saya sangat terkesan dengan desain antarmukanya yang intuitif dan mudah digunakan. Berbagai fitur yang ditawarkan sangat membantu dalam manajemen proyek saya. Dukungan pelanggannya juga responsif dan sangat membantu. Saya sangat merekomendasikan Arunasita untuk siapa saja yang mencari solusi manajemen proyek yang efisien.",
+          nama: "Andi Prasetyo",
+        },
+        {
+          id: 2,
+          imageSrc: "./tentang/foto2.png",
+          imageAlt: "heh",
+          desc: "Pengalaman saya menggunakan Arunasita cukup memuaskan. Fitur-fitur yang ditawarkan sangat komprehensif dan membantu dalam mengelola tim dan tugas. Namun, saya berharap ada lebih banyak opsi integrasi dengan alat lain yang sudah kami gunakan. Secara keseluruhan, Arunasita tetap merupakan alat yang hebat untuk meningkatkan produktivitas.",
+          nama: "Steve",
+        },
+        {
+          id: 3,
+          imageSrc: "./tentang/foto3.png",
+          imageAlt: "heh",
+          desc: "Saya sangat puas dengan Arunasita! Platform ini benar-benar memudahkan saya dalam mengatur proyek dan tim. Semua fitur bekerja dengan sangat baik, dan desainnya sangat user-friendly. Saya juga sangat menghargai adanya update berkala yang menambahkan fitur baru dan perbaikan bug. Terima kasih, Arunasita.",
+          nama: "Rudi Hartono",
+        },
+        {
+          id: 4,
+          imageSrc: "./tentang/foto4.png",
+          imageAlt: "heh",
+          desc: "Arunasita adalah alat yang sangat berguna untuk manajemen proyek. Saya sangat menyukai fitur kolaborasinya yang memudahkan komunikasi antar anggota tim. Namun, ada beberapa fitur yang saya rasa masih bisa ditingkatkan. Meskipun begitu, Arunasita tetap menjadi pilihan utama saya untuk manajemen proyek.",
+          nama: "Dewa",
+        },
+        {
+          id: 5,
+          imageSrc: "./tentang/foto5.png",
+          imageAlt: "heh",
+          desc: "Arunasita benar-benar mengubah cara kami bekerja. Dengan fitur-fitur canggihnya, kami dapat mengelola proyek dengan lebih efisien dan efektif. Antarmuka yang bersih dan mudah digunakan membuat semua anggota tim dapat beradaptasi dengan cepat. Saya sangat merekomendasikan Arunasita kepada semua perusahaan yang mencari solusi manajemen proyek yang solid.",
+          nama: "Pombi",
+        },
+        {
+          id: 6,
+          imageSrc: "./tentang/foto6.png",
+          imageAlt: "heh",
+          desc: "Arunasita telah menjadi alat yang tak tergantikan dalam manajemen proyek kami. Dari perencanaan hingga pelaksanaan, setiap fitur yang ditawarkan sangat mendukung produktivitas tim. Kemampuan untuk melacak progres dan mengelola tugas secara real-time membuat semuanya berjalan lebih lancar. Tim supportnya juga sangat responsif dan membantu dalam setiap masalah yang kami hadapi. Sangat direkomendasikan untuk siapa saja yang membutuhkan alat manajemen proyek yang handal dan efisien.",
+          nama: "Jonathan",
+        },
+      ],
+    };
+  },
   components: {
     Navbar,
     Footer,
